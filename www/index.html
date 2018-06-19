@@ -1,0 +1,1317 @@
+
+<html lang="zh-cn"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="same-origin">
+<title>c++ list, vector, map, set 区别与用法比较 - 贺大卫 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=-hy83QNg62d4qYibixJzxMJkbf1P9fTBlqv7SK5zVL01">
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/LessIsMore/bundle-LessIsMore.css?v=K-SPbyFTmacJSNw1O1LzZFcIaS56dT8uEKlXYOxLR9k1">
+<link type="text/css" rel="stylesheet" href="/blog/customcss/217286.css?v=boSI3KbvPrJVPTc%2bH8O0D3%2bLLVc%3d">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/LessIsMore/bundle-LessIsMore-mobile.css?v=d9LctKHRIQp9rreugMcQ1-UJuq_j1fo0GZXTXj8Bqrk1">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/virusolf/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/virusolf/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/virusolf/wlwmanifest.xml">
+<script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'virusolf', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=d16NGD79qD3qnJt25hXDZ2sGoojamz2W5Rl4vT0CGVg1" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css"></head>
+<body style="">
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/virusolf/">贺大卫</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/virusolf/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E8%B4%BA%E5%A4%A7%E5%8D%AB">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/virusolf/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/virusolf/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-159&nbsp;
+文章-0&nbsp;
+评论-1&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/virusolf/p/4323940.html">c++ list, vector, map, set 区别与用法比较</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>http://blog.csdn.net/alex_xhl/article/details/37692297</p>
+<p>&nbsp;</p>
+<p>List封装了链表,Vector封装了数组, list和vector得最主要的区别在于vector使用连续内存存储的，他支持[]运算符，而list是以链表形式实现的，不支持[]。</p>
+<p>Vector对于随机访问的速度很快，但是对于插入尤其是在头部插入元素速度很慢，在尾部插入速度很快。List对于随机访问速度慢得多，因为可能要遍历整个链表才能做到，但是对于插入就快的多了，不需要拷贝和移动数据，只需要改变指针的指向就可以了。另外对于新添加的元素，Vector有一套算法，而List可以任意加入。<br>Map,Set属于标准关联容器，使用了非常高效的平衡检索二叉树：红黑树，他的插入删除效率比其他序列容器高是因为不需要做内存拷贝和内存移动，而直接替换指向节点的指针即可。<br>Set和Vector的区别在于Set不包含重复的数据。Set和Map的区别在于Set只含有Key，而Map有一个Key和Key所对应的Value两个元素。<br>Map和Hash_Map的区别是Hash_Map使用了Hash算法来加快查找过程，但是需要更多的内存来存放这些Hash桶元素，因此可以算得上是采用空间来换取时间策略。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1&nbsp;<strong>vector</strong></p>
+<div id="blog_text" class="cnt">&nbsp;&nbsp;&nbsp; 向量 相当于一个数组<br>&nbsp;&nbsp;&nbsp; 在内存中分配一块连续的内存空间进行存储。支持不指定vector大小的存储。STL内部实现时，首先分配一个非常大的内存空间预备进行存储，即capacituy（）函数返回的大小，当超过此分配的空间时再整体重新放分配一块内存存储，这给人以vector可以不指定vector即一个连续内存的大小的感觉。通常此默认的内存分配能完成大部分情况下的存储。<br>&nbsp;&nbsp; 优点：(1) 不指定一块内存大小的数组的连续存储，即可以像数组一样操作，但可以对此数组<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 进行动态操作。通常体现在push_back() pop_back()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (2) 随机访问方便，即支持[ ]操作符和vector.at()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (3) 节省空间。<br>&nbsp;&nbsp; 缺点：(1) 在内部进行插入删除操作效率低。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (2) 只能在<a name="baidusnap6" target="_blank"></a>vector的最后进行push和pop，不能在vector的头进行push和pop。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;当动态添加的数据超过vector默认分配的大小时要进行整体的重新分配、拷贝与释<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 放&nbsp;<br><br>2&nbsp;<strong>list</strong><br>&nbsp;&nbsp;&nbsp; 双向链表<br>&nbsp;&nbsp;&nbsp; 每一个结点都包括一个信息快Info、一个前驱指针Pre、一个后驱指针Post。可以不分配必须的内存大小方便的进行添加和删除操作。使用的是非连续的内存空间进行存储。<br>&nbsp;&nbsp; 优点：(1) 不使用连续内存完成动态操作。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) 在内部方便的进行插入和删除操作<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (3) 可在两端进行push、pop<br>&nbsp;&nbsp; 缺点：(1)&nbsp;不能进行内部的随机访问，即不支持[ ]操作符和vector.at()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (2) 相对于verctor占用内存多<br><br>3&nbsp;<strong>deque</strong><br>&nbsp;&nbsp;&nbsp;双端队列 double-end queue<br>&nbsp;&nbsp;&nbsp;deque是在功能上合并了vector和list。<br>&nbsp;&nbsp; 优点：(1) 随机访问方便，即支持[ ]操作符和vector.at()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) 在内部方便的进行插入和删除操作<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (3) 可在两端进行push、pop<br>&nbsp;&nbsp; 缺点：(1) 占用内存多<br><strong><br>使用区别：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp; 1 如果你需要高效的随即存取，而不在乎插入和删除的效率，使用vector&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp; 2 如果你需要大量的插入和删除，而不关心随即存取，则应使用list&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp; 3 如果你需要随即存取，而且关心两端数据的插入和删除，则应使用deque</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt"><span class="tcnt">C++STL中vector容器的用法&nbsp;<br></span></div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">http://xiamaogeng.blog.163.com/blog/static/1670023742010102494039234/</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">
+<div>vector是C++标准模板库<a name="baidusnap1" target="_blank"></a>中的部分内容，它是一个多功能的，能够操作多种数据结构和算法的模板类和函数库。vector之所以被认为是一个容器，是因为它能够像容器一样存放各种类型的对象，简单地说vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。为了可以使用vector，必须在你的头文件中包含下面的代码：
+<p>#include &lt;vector&gt;</p>
+<p>vector属于std命名域的，因此需要通过命名限定，如下完成你的代码：</p>
+<p>using std::vector;&nbsp;&nbsp;&nbsp;&nbsp; vector&lt;int&gt; v;</p>
+<p>或者连在一起，使用全名：</p>
+<p>std::vector&lt;int&gt; v;</p>
+<p>建议使用全局的命名域方式：</p>
+<p>using namespace std;</p>
+<p>1.vector的声明</p>
+<p>&nbsp;&nbsp; vector&lt;ElemType&gt; c;&nbsp;&nbsp; 创建一个空的vector</p>
+<p>&nbsp;&nbsp; vector&lt;ElemType&gt; c1(c2); 创建一个vector c1，并用c2去初始化c1</p>
+<p>&nbsp;&nbsp; vector&lt;ElemType&gt; c(n) ; 创建一个含有n个ElemType类型数据的vector;</p>
+<p>&nbsp;&nbsp; vector&lt;ElemType&gt; c(n,elem); 创建一个含有n个ElemType类型数据的vector,并全部初始化为elem;</p>
+<p>&nbsp;&nbsp; c.~vector&lt;ElemType&gt;(); 销毁所有数据,释放资源;</p>
+<p>2.vector容器中常用的函数。(c为一个容器对象）</p>
+<p>&nbsp;&nbsp;&nbsp; c.push_back(elem);&nbsp;&nbsp; 在容器最后位置添加一个元素elem</p>
+<p>&nbsp;&nbsp;&nbsp; c.pop_back();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除容器最后位置处的元素</p>
+<p>&nbsp;&nbsp;&nbsp; c.at(index);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回指定index位置处的元素</p>
+<p>&nbsp;&nbsp;&nbsp; c.begin();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回指向容器最开始位置数据的指针</p>
+<p>&nbsp;&nbsp;&nbsp; c.end();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回指向容器最后一个数据单元的指针+1</p>
+<p>&nbsp;&nbsp;&nbsp; c.front();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回容器最开始单元数据的引用</p>
+<p>&nbsp;&nbsp;&nbsp; c.back();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回容器最后一个数据的引用</p>
+<p>&nbsp;&nbsp;&nbsp; c.max_size();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回容器的最大容量</p>
+<p>&nbsp;&nbsp;&nbsp; c.size();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回当前容器中实际存放元素的个数</p>
+<p>&nbsp;&nbsp;&nbsp; c.capacity();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同c.size()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; c.resize();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 重新设置vector的容量</p>
+<p>&nbsp;&nbsp;&nbsp; c.reserve();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同c.resize()</p>
+<p>&nbsp;&nbsp;&nbsp; c.erase(p);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除指针p指向位置的数据，返回下指向下一个数据位置的指针（迭代器）</p>
+<p>&nbsp;&nbsp;&nbsp; c.erase(begin,end)&nbsp;&nbsp;&nbsp;&nbsp; 删除begin,end区间的数据，返回指向下一个数据位置的指针（迭代器）</p>
+<p>&nbsp;&nbsp;&nbsp; c.clear();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 清除所有数据</p>
+<p>&nbsp;&nbsp;&nbsp; c.rbegin();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将vector反转后的开始指针返回(其实就是原来的end-1)</p>
+<p>&nbsp;&nbsp;&nbsp; c.rend();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将vector反转后的结束指针返回(其实就是原来的begin-1)</p>
+<p>&nbsp;&nbsp;&nbsp; c.empty();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 判断容器是否为空，若为空返回true，否则返回false</p>
+<p>&nbsp;&nbsp;&nbsp; c1.swap(c2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 交换两个容器中的数据</p>
+<p>&nbsp;&nbsp;&nbsp; c.insert(p,elem);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在指针p指向的位置插入数据elem,返回指向elem位置的指针&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp; c.insert(p,n,elem);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在位置p插入n个elem数据，无返回值</p>
+<p>&nbsp;&nbsp;&nbsp; c.insert(p,begin,end) 在位置p插入在区间[begin,end)的数据，无返回值</p>
+<p>3.vector中的操作</p>
+<p>&nbsp;&nbsp;&nbsp; operator[] 如： c.[i];</p>
+<p>&nbsp;&nbsp;&nbsp; 同at()函数的作用相同，即取容器中的数据。</p>
+<p>在上大致讲述了vector类中所含有的函数和操作，下面继续讨论如何使用vector容器；</p>
+<p>1.数据的输入和删除。push_back（）与pop_back（）</p>
+<p><img src="http://img.blog.163.com/photo/mILCTA6BMgOpdFJzIsdzyg==/5747719024432020726.jpg" alt="C++STL中vector容器的用法 - 夏茂庚 - 夏茂庚" border="0"><br>2.元素的访问</p>
+<p><img src="http://img.blog.163.com/photo/3O_yi8sdiv40ND4gs2Rb0Q==/5747719024432020727.jpg" alt="C++STL中vector容器的用法 - 夏茂庚 - 夏茂庚" border="0"><br>3.排序和查询</p>
+<p><img src="http://img.blog.163.com/photo/pjGEu-MvlXq-V4QWSCYRgA==/5747719024432020728.jpg" alt="C++STL中vector容器的用法 - 夏茂庚 - 夏茂庚" border="0"></p>
+<p>4.二维容器</p>
+<p><img src="http://img.blog.163.com/photo/XqLY3Vb6iCjvwJ7WpwOzOQ==/5747719024432020729.jpg" alt="C++STL中vector容器的用法 - 夏茂庚 - 夏茂庚" border="0"></p>
+
+
+
+</div>
+
+
+
+</div>
+<div id="blog_text" class="cnt">
+<h2><a id="ctl01_TitleUrl" href="http://www.cnblogs.com/madlas/articles/1364503.html" target="_blank">C++ STLList队列用法（实例）</a></h2>
+<div>http://www.cnblogs.com/madlas/articles/1364503.html</div>
+<div>&nbsp;</div>
+<div id="cnblogs_post_body">
+<div>C++ STL&nbsp;List队列用法（实例）</div>
+<div>2007-12-15 12:54</div>
+<div id="blog_text">
+<p>#include &lt;iostream&gt;<br>#include &lt;list&gt;<br>#include &lt;numeric&gt;<br>#include &lt;algorithm&gt;</p>
+<p>using namespace std;</p>
+<p>//创建一个list容器的实例LISTINT<br>typedef&nbsp;list&lt;int&gt; LISTINT;</p>
+<p>//创建一个list容器的实例LISTCHAR<br>typedef&nbsp;list&lt;char&gt; LISTCHAR;</p>
+<p>void main(void)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;//--------------------------<br>&nbsp;&nbsp;&nbsp;&nbsp;//用list容器处理整型数据<br>&nbsp;&nbsp;&nbsp;&nbsp;//--------------------------<br>&nbsp;&nbsp;&nbsp;&nbsp;//用LISTINT创建一个名为listOne的list对象<br>&nbsp;&nbsp;&nbsp;&nbsp;LISTINT listOne;<br>&nbsp;&nbsp;&nbsp;&nbsp;//声明i为迭代器<br>&nbsp;&nbsp;&nbsp;&nbsp;LISTINT::iterator i;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从前面向listOne容器中添加数据<br>&nbsp;&nbsp;&nbsp;&nbsp;listOne.push_front (2);<br>&nbsp;&nbsp;&nbsp;&nbsp;listOne.push_front (1);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从后面向listOne容器中添加数据<br>&nbsp;&nbsp;&nbsp;&nbsp;listOne.push_back (3);<br>&nbsp;&nbsp;&nbsp;&nbsp;listOne.push_back (4);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从前向后显示listOne中的数据<br>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"listOne.begin()--- listOne.end():"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (i = listOne.begin(); i != listOne.end(); ++i)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; *i &lt;&lt; " ";<br>&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从后向后显示listOne中的数据<br>LISTINT::reverse_iterator ir;<br>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"listOne.rbegin()---listOne.rend():"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (ir =listOne.rbegin(); ir!=listOne.rend();ir++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; *ir &lt;&lt; " ";<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//使用STL的accumulate(累加)算法<br>&nbsp;&nbsp;&nbsp;&nbsp;int result = accumulate(listOne.begin(), listOne.end(),0);<br>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"Sum="&lt;&lt;result&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"------------------"&lt;&lt;endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//--------------------------<br>&nbsp;&nbsp;&nbsp;&nbsp;//用list容器处理字符型数据<br>&nbsp;&nbsp;&nbsp;&nbsp;//--------------------------</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//用LISTCHAR创建一个名为listOne的list对象<br>&nbsp;&nbsp;&nbsp;&nbsp;LISTCHAR listTwo;<br>&nbsp;&nbsp;&nbsp;&nbsp;//声明i为迭代器<br>&nbsp;&nbsp;&nbsp;&nbsp;LISTCHAR::iterator j;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从前面向listTwo容器中添加数据<br>&nbsp;&nbsp;&nbsp;&nbsp;listTwo.push_front ('A');<br>&nbsp;&nbsp;&nbsp;&nbsp;listTwo.push_front ('B');</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从后面向listTwo容器中添加数据<br>&nbsp;&nbsp;&nbsp;&nbsp;listTwo.push_back ('x');<br>&nbsp;&nbsp;&nbsp;&nbsp;listTwo.push_back ('y');</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从前向后显示listTwo中的数据<br>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"listTwo.begin()---listTwo.end():"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (j = listTwo.begin(); j != listTwo.end(); ++j)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; char(*j) &lt;&lt; " ";<br>&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//使用STL的max_element算法求listTwo中的最大元素并显示<br>&nbsp;&nbsp;&nbsp;&nbsp;j=max_element(listTwo.begin(),listTwo.end());<br>&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "The maximum element in listTwo is: "&lt;&lt;char(*j)&lt;&lt;endl;<br>}</p>
+<p>#include &lt;iostream&gt;<br>#include &lt;list&gt;</p>
+<p>using namespace std;<br>typedef&nbsp;list&lt;int&gt; INTLIST;</p>
+<p>//从前向后显示list队列的全部元素<br>void put_list(INTLISTlist, char *name)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;INTLIST::iterator plist;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "The contents of " &lt;&lt; name &lt;&lt; " : ";<br>&nbsp;&nbsp;&nbsp;&nbsp;for(plist =&nbsp;list.begin(); plist !=&nbsp;list.end(); plist++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; *plist &lt;&lt; " ";<br>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;endl;<br>}</p>
+<p>//测试list容器的功能<br>void main(void)<br>{<br>//list1对象初始为空<br>&nbsp;&nbsp;&nbsp;&nbsp;INTLIST&nbsp;list1;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;//list2对象最初有10个值为6的元素<br>&nbsp;&nbsp;&nbsp;&nbsp;INTLIST&nbsp;list2(10,6);<br>&nbsp;&nbsp;&nbsp;&nbsp;//list3对象最初有3个值为6的元素<br>&nbsp;&nbsp;&nbsp;&nbsp;INTLIST&nbsp;list3(list2.begin(),--list2.end());</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//声明一个名为i的双向迭代器<br>&nbsp;&nbsp;&nbsp;&nbsp;INTLIST::iterator i;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//从前向后显示各list对象的元素<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list2,"list2");<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list3,"list3");<br>&nbsp;&nbsp;&nbsp;<br>//从list1序列后面添加两个元素<br>list1.push_back(2);<br>list1.push_back(4);<br>cout&lt;&lt;"list1.push_back(2) andlist1.push_back(4):"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");</p>
+<p>//从list1序列前面添加两个元素<br>list1.push_front(5);<br>list1.push_front(7);<br>cout&lt;&lt;"list1.push_front(5) andlist1.push_front(7):"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");</p>
+<p>//在list1序列中间插入数据<br>list1.insert(++list1.begin(),3,9);<br>cout&lt;&lt;"list1.insert(list1.begin()+1,3,9):"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");</p>
+<p>//测试引用类函数<br>cout&lt;&lt;"list1.front()="&lt;&lt;list1.front()&lt;&lt;endl;<br>cout&lt;&lt;"list1.back()="&lt;&lt;list1.back()&lt;&lt;endl;</p>
+<p>//从list1序列的前后各移去一个元素<br>list1.pop_front();<br>list1.pop_back();<br>cout&lt;&lt;"list1.pop_front() andlist1.pop_back():"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");</p>
+<p>//清除list1中的第2个元素<br>list1.erase(++list1.begin());<br>cout&lt;&lt;"list1.erase(++list1.begin()):"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");</p>
+<p>//对list2赋值并显示<br>list2.assign(8,1);<br>cout&lt;&lt;"list2.assign(8,1):"&lt;&lt;endl;<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list2,"list2");</p>
+<p>//显示序列的状态信息<br>cout&lt;&lt;"list1.max_size(): "&lt;&lt;list1.max_size()&lt;&lt;endl;<br>cout&lt;&lt;"list1.size(): "&lt;&lt;list1.size()&lt;&lt;endl;<br>cout&lt;&lt;"list1.empty(): "&lt;&lt;list1.empty()&lt;&lt;endl;</p>
+<p>//list序列容器的运算<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list3,"list3");<br>cout&lt;&lt;"list1&gt;list3: "&lt;&lt;(list1&gt;list3)&lt;&lt;endl;<br>cout&lt;&lt;"list1&lt;list3: "&lt;&lt;(list1&lt;list3)&lt;&lt;endl;</p>
+<p>//对list1容器排序<br>list1.sort();<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");<br>&nbsp;&nbsp;&nbsp;<br>//结合处理<br>list1.splice(++list1.begin(),list3);<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list1,"list1");<br>&nbsp;&nbsp;&nbsp;&nbsp;put_list(list3,"list3");<br>}</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">&nbsp;</div>
+<div id="blog_text" class="cnt">
+<div class="postTitle"><a id="viewpost1_TitleUrl" href="http://www.cppblog.com/vontroy/archive/2010/05/16/115501.html" target="_blank">C++map&nbsp;映照容器</a></div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">http://www.cppblog.com/vontroy/archive/2010/05/16/115501.html</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">map映照容器的元素数据是一个键值和一个映照数据组成的，键值与映照数据之间具有一一映照的关系。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map映照容器的数据结构是采用红黑树来实现的，插入键值的元素不允许重复，比较函数只对元素的键值进行比较，元素的各项数据可通过键值检索出来。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用map容器需要头文件包含语句“#include&lt;map&gt;”，map文件也包含了对multimap多重映照容器的定义。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>1、map创建、元素插入和遍历访问<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>创建map对象，键值与映照数据的类型由自己定义。在没有指定比较函数时，元素的插入位置是按键值由小到大插入到黑白树中去的，下面这个程序详细说明了如何操作map容器。<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>11<img id="Codehighlighter1_147_515_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_147_515_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_147_515_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_147_515_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;string,float&gt;&nbsp;m&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//插入元素，按键值的由小到大放入黑白树中<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m["Jack"]&nbsp;=&nbsp;98.5&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m["Bomi"]&nbsp;=&nbsp;96.0&nbsp;;<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m["Kate"]&nbsp;=&nbsp;97.5&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//先前遍历元素<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;string,float&gt;&nbsp;::&nbsp;iterator&nbsp;it&nbsp;;<br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(it&nbsp;=&nbsp;m.begin()&nbsp;;&nbsp;it&nbsp;!=&nbsp;m.end()&nbsp;;&nbsp;it&nbsp;++)<br>23<img id="Codehighlighter1_419_491_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_419_491_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_419_491_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_419_491_Open_Text">{<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(*it).first&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;(*it).second&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>26<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>29<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></div>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 运行结果：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bomi ：96<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jack&nbsp; ：98.5<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kate&nbsp; ：97.5<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;程序编译试，会产生代号为“warning C4786” 的警告， “4786” 是标记符超长警告的代号。可以在程序的头文件包含代码的前面使用"#pragma waring(disable:4786)" 宏语句，强制编译器忽略该警告。4786号警告对程序的正确性和运行并无影响。<br><strong>2、删除元素<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; map</strong>映照容器的 erase() 删除元素函数，可以删除某个迭代器位置上的元素、等于某个键值的元素、一个迭代器区间上的所有元素，当然，也可使用clear()方法清空map映照容器。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面这个程序演示了删除map容器中键值为28的元素：<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>11<img id="Codehighlighter1_147_535_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_147_535_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_147_535_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_147_535_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;m&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//插入元素，按键值的由小到大放入黑白树中<br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[25]&nbsp;=&nbsp;'m'&nbsp;;<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[28]&nbsp;=&nbsp;'k'&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[10]&nbsp;=&nbsp;'x'&nbsp;;<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[30]&nbsp;=&nbsp;'a'&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//删除键值为28的元素<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m.erase(28)&nbsp;;<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//向前遍历元素<br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;::&nbsp;iterator&nbsp;it&nbsp;;<br>23<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for(it&nbsp;=&nbsp;m.begin()&nbsp;;&nbsp;it&nbsp;!=&nbsp;m.end()&nbsp;;&nbsp;it&nbsp;++)<br>24<img id="Codehighlighter1_429_518_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_429_518_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_429_518_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_429_518_Open_Text">{<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//输出键值与映照数据<br>26<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(*it).first&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;(*it).second&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>29<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>30<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></div>
+
+
+
+运行结果：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 : x<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 : m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 : a<br><strong>3、元素反向遍历</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以用反向迭代器reverse_iterator反向遍历map映照容器中的数据，它需要rbegin()方法和rend()方法指出反向遍历的起始位置和终止位置。<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>11<img id="Codehighlighter1_147_517_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_147_517_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_147_517_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_147_517_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;m&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//插入元素，按键值的由小到大放入黑白树中<br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[25]&nbsp;=&nbsp;'m'&nbsp;;<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[28]&nbsp;=&nbsp;'k'&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[10]&nbsp;=&nbsp;'x'&nbsp;;<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[30]&nbsp;=&nbsp;'a'&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//反向遍历元素<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;::&nbsp;reverse_iterator&nbsp;rit&nbsp;;<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for(&nbsp;rit&nbsp;=&nbsp;m.rbegin()&nbsp;;&nbsp;rit&nbsp;!=&nbsp;m.rend()&nbsp;;&nbsp;rit&nbsp;++)<br>22<img id="Codehighlighter1_409_500_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_409_500_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_409_500_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_409_500_Open_Text">{<br>23<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//输入键值与映照数据<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(*rit).first&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;(*rit).second&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>26<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></div>
+
+
+
+运行结果：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 : a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 28 : k<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 : m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 : x<br><strong>4、元素的搜索<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>使用find()方法来搜索某个键值，如果搜索到了，则返回该键值所在的迭代器位置，否则，返回end()迭代器位置。由于map采用黑白树数据结构来实现，所以搜索速度是极快的。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面这个程序搜索键值为28的元素：<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>11<img id="Codehighlighter1_147_521_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_147_521_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_147_521_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_147_521_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;m&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//插入元素，按键值的由小到大放入黑白树中<br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[25]&nbsp;=&nbsp;'m'&nbsp;;<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[28]&nbsp;=&nbsp;'k'&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[10]&nbsp;=&nbsp;'x'&nbsp;;<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[30]&nbsp;=&nbsp;'a'&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;::&nbsp;iterator&nbsp;it&nbsp;;<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;=&nbsp;m.find(28)&nbsp;;<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;if(it&nbsp;!=&nbsp;m.end())&nbsp;&nbsp;//搜索到该键值<br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(*it).first&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;(&nbsp;*it&nbsp;).second&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>23<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;else<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"not&nbsp;found&nbsp;it"&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>26<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></div>
+
+
+
+<strong>5、自定义比较函数<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>将元素插入到map中去的时候，map会根据设定的比较函数将该元素放到该放的节点上去。在定义map的时候，如果没有指定比较函数，那么采用默认的比较函数，即按键值由小到大的顺序插入元素。在很多情况下，需要自己编写比较函数。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;编写方法有两种。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; （1）如果元素不是结构体，那么，可以编写比较函数。下面这个程序编写的比较规则是要求按键值由大到小的顺序将元素插入到map中<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">//自定义比较函数&nbsp;myComp<br>11<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">struct&nbsp;myComp<br>12<img id="Codehighlighter1_167_293_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_167_293_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_167_293_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_167_293_Open_Text">{<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;operator()&nbsp;(const&nbsp;int&nbsp;&amp;a,&nbsp;const&nbsp;int&nbsp;&amp;b)<br>14<img id="Codehighlighter1_222_291_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_222_291_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_222_291_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_222_291_Open_Text">{<br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(a&nbsp;!=&nbsp;b)&nbsp;return&nbsp;a&nbsp;&gt;&nbsp;b&nbsp;;<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;&nbsp;return&nbsp;a&nbsp;&gt;&nbsp;b&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>21<img id="Codehighlighter1_309_649_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_309_649_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_309_649_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_309_649_Open_Text">{<br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>23<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;m&nbsp;;<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//插入元素，按键值的由小到大放入黑白树中<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[25]&nbsp;=&nbsp;'m'&nbsp;;<br>26<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[28]&nbsp;=&nbsp;'k'&nbsp;;<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[10]&nbsp;=&nbsp;'x'&nbsp;;<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[30]&nbsp;=&nbsp;'a'&nbsp;;<br>29<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//使用前向迭代器中序遍历map<br>30<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char,myComp&gt;&nbsp;::&nbsp;iterator&nbsp;it&nbsp;;<br>31<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for(it&nbsp;=&nbsp;m.begin()&nbsp;;&nbsp;it&nbsp;!=&nbsp;m.end()&nbsp;;&nbsp;it&nbsp;++)<br>32<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(*it).first&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;(*it).second&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>33<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>34<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>35<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></span></span></div>
+
+
+
+运行结果：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 ：a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28 ：k<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 ：m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 ：x<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）如果元素是结构体，那么，可以直接把比较函数写在结构体内。下面的程序详细说明了如何操作：<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">struct&nbsp;Info<br>11<img id="Codehighlighter1_148_339_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_148_339_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_148_339_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_148_339_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;name&nbsp;;<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;score&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//重载&nbsp;“&lt;”操作符，自定义排列规则<br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;operator&nbsp;&lt;&nbsp;(const&nbsp;Info&nbsp;&amp;a)&nbsp;const<br>16<img id="Codehighlighter1_256_337_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_256_337_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_256_337_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_256_337_Open_Text">{<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//按score由大到小排列。如果要由小到大排列，使用“&gt;”号即可<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;a.score&nbsp;&lt;&nbsp;score&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}&nbsp;;<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>23<img id="Codehighlighter1_355_919_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_355_919_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_355_919_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_355_919_Open_Text">{<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;Info,&nbsp;int&gt;&nbsp;m&nbsp;;<br>26<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义Info结构体变量<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;Info&nbsp;info&nbsp;;<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//插入元素，按键值的由小到大放入黑白树中<br>29<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;info.name&nbsp;=&nbsp;"Jack"&nbsp;;<br>30<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;info.score&nbsp;=&nbsp;60&nbsp;;<br>31<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[info]&nbsp;=&nbsp;25&nbsp;;<br>32<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;info.name&nbsp;=&nbsp;"Bomi"&nbsp;;<br>33<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;info.score&nbsp;=&nbsp;80&nbsp;;<br>34<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[info]&nbsp;=&nbsp;10&nbsp;;<br>35<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;info.name&nbsp;=&nbsp;"Peti"&nbsp;;<br>36<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;info.score&nbsp;=&nbsp;66.5&nbsp;;<br>37<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[info]&nbsp;=&nbsp;30&nbsp;;<br>38<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//使用前向迭代器中序遍历map<br>39<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;Info,int&gt;&nbsp;::&nbsp;iterator&nbsp;it&nbsp;;<br>40<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for(it&nbsp;=&nbsp;m.begin()&nbsp;;&nbsp;it&nbsp;!=&nbsp;m.end()&nbsp;;&nbsp;it&nbsp;++)<br>41<img id="Codehighlighter1_771_902_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_771_902_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_771_902_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_771_902_Open_Text">{<br>42<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(*it).second&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;;<br>43<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;((*it).first).name&nbsp;&lt;&lt;&nbsp;"&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;((*it).first).score&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>44<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>45<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>46<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>47<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></span></span></span></span></div>
+
+
+
+运行结果：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 ：Bomi&nbsp;&nbsp;&nbsp;80<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 ：Peti&nbsp;&nbsp;&nbsp;&nbsp; 66.5<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 ：Jack&nbsp;&nbsp;&nbsp; 60<br><strong>6、用map实现数字分离</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对数字的各位进行分离，采用取余等数学方法是很耗时的。而把数字当成字符串，使用map的映照功能，很方便地实现了数字分离。下面这个程序将一个字符串中的字符当成数字，并将各位的数值相加，最后输出各位的和。<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>11<img id="Codehighlighter1_147_689_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_147_689_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_147_689_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_147_689_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;char,&nbsp;int&gt;&nbsp;m&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top"><br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//赋值：字符映射数字<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['0']&nbsp;=&nbsp;0&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['1']&nbsp;=&nbsp;1&nbsp;;<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['2']&nbsp;=&nbsp;2&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['3']&nbsp;=&nbsp;3&nbsp;;<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['4']&nbsp;=&nbsp;4&nbsp;;<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['5']&nbsp;=&nbsp;5&nbsp;;<br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['6']&nbsp;=&nbsp;6&nbsp;;<br>23<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['7']&nbsp;=&nbsp;7&nbsp;;<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['8']&nbsp;=&nbsp;8&nbsp;;<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m['9']&nbsp;=&nbsp;9&nbsp;;<br>26<img id="Codehighlighter1_386_494_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_386_494_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_386_494_Closed_Text">/**/<span id="Codehighlighter1_386_494_Open_Text">/*上面的10条赋值语句可采用下面这个循环简化代码编写<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;j&nbsp;=&nbsp;0&nbsp;;&nbsp;j&nbsp;&lt;&nbsp;10&nbsp;;&nbsp;j++)<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;{<br>29<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m['0'&nbsp;+&nbsp;j]&nbsp;=&nbsp;j&nbsp;;<br>30<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>31<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;*/<br>32<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;sa,&nbsp;sb&nbsp;;<br>33<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;sa&nbsp;=&nbsp;"6234"&nbsp;;<br>34<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;;<br>35<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;sum&nbsp;=&nbsp;0&nbsp;;<br>36<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(&nbsp;i&nbsp;=&nbsp;0&nbsp;;&nbsp;i&nbsp;&lt;&nbsp;sa.length()&nbsp;;&nbsp;i++&nbsp;)<br>37<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;+=&nbsp;m[sa[i]]&nbsp;;<br>38<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"sum&nbsp;=&nbsp;"&nbsp;&lt;&lt;&nbsp;sum&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>39<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>40<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>41<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></div>
+
+
+
+<strong>7、数字映照字符的map写法<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>在很多情况下，需要实现将数字映射为相应的字符，看看下面的程序：<br>
+<div>&nbsp;1<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;string&gt;<br>&nbsp;2<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;map&gt;<br>&nbsp;3<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">#include&nbsp;&lt;iostream&gt;<br>&nbsp;4<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>&nbsp;5<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;cout&nbsp;;<br>&nbsp;6<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;endl&nbsp;;<br>&nbsp;7<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;string&nbsp;;<br>&nbsp;8<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">using&nbsp;std&nbsp;::&nbsp;map&nbsp;;<br>&nbsp;9<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"><br>10<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top">int&nbsp;main()<br>11<img id="Codehighlighter1_147_592_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_147_592_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedBlock.gif" alt="" align="top"><span id="Codehighlighter1_147_592_Closed_Text"><img src="http://www.cppblog.com/Images/dot.gif" alt=""><span id="Codehighlighter1_147_592_Open_Text">{<br>12<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//定义map对象，当前没有任何元素<br>13<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int,&nbsp;char&gt;&nbsp;m&nbsp;;<br>14<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top"><br>15<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;//赋值：字符映射数字<br>16<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[0]&nbsp;=&nbsp;'0'&nbsp;;<br>17<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[1]&nbsp;=&nbsp;'1'&nbsp;;<br>18<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[2]&nbsp;=&nbsp;'2'&nbsp;;<br>19<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[3]&nbsp;=&nbsp;'3'&nbsp;;<br>20<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[4]&nbsp;=&nbsp;'4'&nbsp;;<br>21<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[5]&nbsp;=&nbsp;'5'&nbsp;;<br>22<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[6]&nbsp;=&nbsp;'6'&nbsp;;<br>23<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[7]&nbsp;=&nbsp;'7'&nbsp;;<br>24<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[8]&nbsp;=&nbsp;'8'&nbsp;;<br>25<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;m[9]&nbsp;=&nbsp;'9'&nbsp;;<br>26<img id="Codehighlighter1_386_494_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top"><img id="Codehighlighter1_386_494_Closed_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ContractedSubBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Codehighlighter1_386_494_Closed_Text">/**/<span id="Codehighlighter1_386_494_Open_Text">/*上面的10条赋值语句可采用下面这个循环简化代码编写<br>27<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;j&nbsp;=&nbsp;0&nbsp;;&nbsp;j&nbsp;&lt;&nbsp;10&nbsp;;&nbsp;j++)<br>28<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;{<br>29<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m[j]&nbsp;=&nbsp;'0'&nbsp;+&nbsp;j&nbsp;;<br>30<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;}<br>31<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;*/<br>32<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n&nbsp;=&nbsp;7&nbsp;;<br>33<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;s&nbsp;=&nbsp;"The&nbsp;number&nbsp;is&nbsp;"&nbsp;;<br>34<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;s&nbsp;+&nbsp;m[n]&nbsp;&lt;&lt;&nbsp;endl&nbsp;;<br>35<img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0&nbsp;;<br>36<img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top">}<br>37<img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top"></span></span></span></span></div>
+
+
+
+运行结果：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number is 7</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">&nbsp;</div>
+<div class="postTitle">
+<p>准模板库就是类与函数模板的大集合。STL共有6种组件：容器，容器适配器，迭代器，算法，函数对象和函数适配器。</p>
+<p>1、容器：</p>
+<p>容器是用来存储和组织其他对象的对象。STL容器类的模板在标准头文件中定义。主要如下所示</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314184820YY5a.gif" alt="" align="middle"></p>
+<p>①序列容器</p>
+<p>基本的序列容器是上面图中的前三类：</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314186467W5QH.gif" alt=""></p>
+<p>关于三者的优缺点主要是：</p>
+<p>A:vector&lt;T&gt;矢量容器：可以随机访问容器的内容，在序列末尾添加或删除对象，但是因为是从尾部删除，过程非常慢，因为必须移动插入或删除点后面的所有对象。</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314186799506c.gif" alt=""></p>
+<p>&nbsp;</p>
+<p>矢量容器的操作：（自己以前有个表，贴出来大家看看）</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_13141871367aW5.gif" alt=""></p>
+<p>其中的capacity表示容量，size是当前数据个数。矢量容器如果用户添加一个元素时容量已满，那么就增加当前容量的一半的内存，比如现在是500了，用户添加进第501个，那么他会再开拓250个，总共就750个了。所以矢量容器当你添加数据量很大的时候，需要注意这一点哦。。。</p>
+<p>&nbsp;</p>
+<p>如果想用迭代器访问元素是比较简单的，使用迭代器输出元素的循环类似如下：</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt">vector&lt;<span class="datatypes">int&gt;::iterator表示矢量容器vector&lt;<span class="datatypes">int&gt;的迭代器。。。&nbsp;&nbsp;</span></span></li>
+
+
+
+</ol></div>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt"><span class="keyword">for(vector&lt;<span class="datatypes">int&gt;::iterator&nbsp;iter&nbsp;=&nbsp;number.begin();&nbsp;iter&lt;number.end();&nbsp;iter++)<span class="comment">//这里的iterator&nbsp;iter算是一个指针了&nbsp;&nbsp;</span></span></span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;<span class="string">"&nbsp;"&nbsp;&lt;&lt;&nbsp;*iter;&nbsp;&nbsp;</span></li>
+
+
+
+</ol></div>
+
+
+
+当然也可以用我们自己的方法，但是感觉用上面的更好一些。
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt"><span class="keyword">for(vector&lt;<span class="datatypes">int&gt;::size_type&nbsp;i=0;&nbsp;i&lt;number.size();&nbsp;i++)&nbsp;&nbsp;</span></span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;<span class="string">"&nbsp;"&nbsp;&lt;&lt;&nbsp;number[i]&nbsp;&nbsp;</span></li>
+
+
+
+</ol></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>排序矢量元素：</p>
+<p>对矢量元素的排序可以使用&lt;algorithm&gt;头文件中定义的sort()函数模板来对一个矢量容器进行排序。但是有几点要求需要注意</p>
+<p>&nbsp;</p>
+<ol>
+<li>sort()函数模板用&lt;运算符来排列元素的顺序，所以容器中对象必须可以进行&lt;运算，如果是基本类型，可以直接调用sort()，如果是自定义对象，必须对&lt;进行运算符重载</li>
+<li>两个迭代器的指向必须是序列的第一个对象和最后一个对象的下一个位置。比如：sort(people.begin(), people.end());//这里两个参数就是迭代器的意思了</li>
+
+
+
+</ol><br>
+<p>B:deque&lt;T&gt;容器：非常类似vector&lt;T&gt;，且支持相同的操作，但是它还可以在序列开头添加和删除。</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314186809iPmh.gif" alt=""></p>
+<p>&nbsp;</p>
+<p>deque&lt;T&gt;双端队列容器与矢量容器基本类似，具有相同的函数成员，但是有点不同的是它支持从两端插入和删除数据，所以就有了两个函数：push_front和pop_front。并且有两个迭代器变量</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt">&lt;span&nbsp;style=<span class="string">"font-size:18px;"&gt;#include&nbsp;&lt;deque&gt;&nbsp;&nbsp;</span></li>
+<li>deque&lt;<span class="datatypes">int&gt;&nbsp;data;<span class="comment">//创建双端队列容器对象&nbsp;&nbsp;</span></span></li>
+<li class="alt">deque&lt;<span class="datatypes">int&gt;::iterator&nbsp;iter;<span class="comment">//书序迭代器&nbsp;&nbsp;</span></span></li>
+<li>deque&lt;<span class="datatypes">int&gt;::reverse_iterator&nbsp;riter;<span class="comment">//逆序迭代器。&nbsp;&nbsp;</span></span></li>
+<li class="alt"><span class="comment">//iter和riter是不同的类型&lt;/span&gt;&nbsp;&nbsp;</span></li>
+
+
+
+</ol></div>
+<p>&nbsp;</p>
+
+
+
+<br>
+<p>C:list&lt;T&gt;容器是双向链表，因此可以有效的在任何位置添加和删除。列表的缺点是不能随机访问内容，要想访问内容必须在列表的内部从头开始便利内容，或者从尾部开始。</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_13141868189Tjb.gif" alt=""></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>②关联容器</p>
+<p>map&lt;K, T&gt;映射容器:K表示键，T表示对象，根据特定的键映射到对象，可以进行快速的检索。</p>
+<p>有关它的创建以及查找的操作作如下总结</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt"><span class="comment">//创建映射容器&nbsp;&nbsp;</span></li>
+<li>map&lt;person,&nbsp;string&gt;&nbsp;phonebook;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li><span class="comment">//创建要存储的对象&nbsp;&nbsp;</span></li>
+<li class="alt">pair&lt;person,&nbsp;string&gt;&nbsp;entry&nbsp;=&nbsp;pair&lt;person,&nbsp;string&gt;(person(<span class="string">"mel",&nbsp;<span class="string">"Gibson"),&nbsp;<span class="string">"213&nbsp;345&nbsp;567");&nbsp;&nbsp;</span></span></span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//插入对象&nbsp;&nbsp;</span></li>
+<li>phonebook.insert(entry);<span class="comment">//只要映射中没有相同的键，就可以插入entry&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li><span class="comment">//访问对象&nbsp;&nbsp;</span></li>
+<li class="alt">string&nbsp;number&nbsp;=&nbsp;phonebook[person(<span class="string">"mel",&nbsp;<span class="string">"Gibson")];<span class="comment">//如果这个键不存在，会默认将这个键插入&nbsp;&nbsp;</span></span></span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//如果不想在找不到的时候插入，可以先查找然后再检索&nbsp;&nbsp;</span></li>
+<li>person&nbsp;key&nbsp;=&nbsp;person(<span class="string">"mel",&nbsp;<span class="string">"Gibson");&nbsp;&nbsp;</span></span></li>
+<li class="alt">map&lt;person,&nbsp;string&gt;::iterator&nbsp;iter&nbsp;=&nbsp;phonebook.find(key);<span class="comment">//创建迭代器，就认为是指针就好了&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">if(iter&nbsp;!=&nbsp;phonebook.end())&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;&nbsp;number&nbsp;=&nbsp;iter-&gt;second;&nbsp;&nbsp;</li>
+
+
+
+</ol></div>
+
+
+
+<br><img src="http://hi.csdn.net/attachment/201108/25/0_1314242304rrS0.gif" alt=""><br>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>2、容器适配器：</p>
+<p>容器适配器是包装了现有的STL容器类的模板类，提供了一个不同的、通常更有限制性的功能。具体如下所示</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314184993htb3.gif" alt=""></p>
+<p>&nbsp;</p>
+<p>A:queue&lt;T&gt;队列容器：通过适配器实现先进先出的存储机制。我们只能向队列的末尾添加或从开头删除元素。push_back() pop_front()</p>
+<p>代码：queue&lt;string, list&lt;string&gt; &gt; names;(这就是定义的一个适配器)是基于列表创建队列的。适配器模板的第二个类型形参指定要使用的底层序列容器，主要的操作如下</p>
+<p><img src="http://hi.csdn.net/attachment/201108/25/0_1314239716Pu0b.gif" alt=""></p>
+<p><img src="http://hi.csdn.net/attachment/201108/25/0_1314239724am2V.gif" alt=""></p>
+<p>B:priority_queue&lt;T&gt;优先级队列容器：是一个队列，它的顶部总是具有最大或最高优先级。优先级队列容器与队列容器一个不同点是优先级队列容器不能访问队列后端的元素。</p>
+<p>默认情况下，优先级队列适配器类使用的是矢量容器vector&lt;T&gt;，当然可以选择指定不同的序列容器作为基础，并选择一个备用函数对象来确定元素的优先级代码如下</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt">priority_queue&lt;<span class="datatypes">int,&nbsp;deque&lt;<span class="datatypes">int&gt;,&nbsp;greate&lt;<span class="datatypes">int&gt;&gt;&nbsp;numbers;&nbsp;&nbsp;</span></span></span></li>
+
+
+
+</ol></div>
+
+
+
+<br>C:stack&lt;T&gt;堆栈容器：其适配器模板在&lt;stack&gt;头文件中定义，默认情况下基于deque&lt;T&gt;容器实现向下推栈，即后进先出机制。只能访问最近刚刚进去的对象
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt">&lt;span&nbsp;style=<span class="string">"font-size:18px;"&gt;<span class="comment">//定义容器&nbsp;&nbsp;</span></span></li>
+<li>stack&lt;person&gt;&nbsp;people;&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//基于列表来定义堆栈&nbsp;&nbsp;</span></li>
+<li>stack&lt;string,&nbsp;list&lt;string&gt;&gt;&nbsp;names;&lt;/span&gt;&nbsp;&nbsp;</li>
+
+
+
+</ol></div>
+
+
+
+<br>基本操作如下：
+<p>&nbsp;</p>
+<p><img src="http://hi.csdn.net/attachment/201108/25/0_1314240798j99W.gif" alt=""></p>
+
+
+
+<br>
+<p>&nbsp;</p>
+<p>3、迭代器：</p>
+<p>具体它的意思还没怎么看明白，书上介绍迭代器的行为与指针类似，这里做个标记<img src="http://static.blog.csdn.net/xheditor/xheditor_emot/default/struggle.gif" alt="奋斗">，看看后面的例子再给出具体的解释</p>
+<p>具体分为三个部分：输入流迭代器、插入迭代器和输出流迭代器。</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314185277vBvq.gif" alt="">、</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314185285BBW8.gif" alt=""></p>
+<p>看这一章的内容看的我有点抑郁了都，摘段课本介绍的内容，还是可以帮助理解的</p>
+<p>&lt;iterator&gt;头文件中定义了迭代器的几个模板：①流迭代器作为指向输入或输出流的指针，他们可以用来在流和任何使用迭代器或目的地之间传输数据。②插入迭代器可以将数据传输给一个基本序列容器。头文件中定义了两个流迭代器模板：istream_iterator&lt;T&gt;用于输入流，ostream_iterator&lt;T&gt;用于输出流。T表示从流中提取数据或写到流中的对象的类型。头文件还定义了三个插入模板：insert&lt;T&gt;, back_insert&lt;T&gt;和front_inset&lt;T&gt;。其中T也是指代序列容器中数据的类型。</p>
+<p>输入流迭代器用下面的程序来说明下，可见具体注释</p>
+<p>&nbsp;</p>
+<div class="dp-highlighter bg_cpp">
+<div class="bar">
+<div class="tools"><strong>[cpp]</strong>&nbsp;<a class="ViewSource" title="view plain" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">view plain</a><a class="CopyToClipboard" title="copy" href="http://blog.csdn.net/timebomb/article/details/6716064" target="_blank">copy</a>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+</div>
+
+
+
+</div>
+<ol class="dp-cpp" start="1">
+<li class="alt"><span class="preprocessor">#include&nbsp;&lt;iostream&gt;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+<li><span class="preprocessor">#include&nbsp;&lt;vector&gt;&nbsp;&nbsp;</span></li>
+<li class="alt"><span class="preprocessor">#include&nbsp;&lt;numeric&gt;&nbsp;&nbsp;</span></li>
+<li><span class="preprocessor">#include&nbsp;&lt;sstream&gt;&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li><span class="keyword">using&nbsp;<span class="keyword">namespace&nbsp;std;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;</li>
+<li><span class="datatypes">int&nbsp;main()&nbsp;&nbsp;</span></li>
+<li class="alt">{&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//定义矢量容器&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;vector&lt;<span class="datatypes">int&gt;&nbsp;numbers;&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;<span class="string">"请输入整数值，以字母结束:";&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//定义输入流迭代器。注意两个不同&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//1、numberInput(cin)是指定迭代器指向流cin&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//2、numbersEnd没有指定，是默认的，默认构造了一个end_of_stream的迭代器，它等价于调用end()&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;istream_iterator&lt;<span class="datatypes">int&gt;&nbsp;numbersInput(cin),&nbsp;numbersEnd;&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//用户输入，直到输入的不是int类型或者终止时结束。&nbsp;&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while(numbersInput&nbsp;!=&nbsp;numbersEnd)&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numbers.push_back(*numbersInput++);&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;<span class="string">"打印输出："&nbsp;&lt;&lt;&nbsp;numbers.at(3)&nbsp;&lt;&lt;&nbsp;endl;&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//如何指定输入流呢？&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//确定字符串&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;data(<span class="string">"2.1&nbsp;3.6&nbsp;36.5&nbsp;26&nbsp;34&nbsp;25&nbsp;2.9&nbsp;63.8");&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//指定data为输入流input。需要头文件&lt;sstream&gt;&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;istringstream&nbsp;input(data);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//定义迭代器&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;istream_iterator&lt;<span class="datatypes">double&gt;&nbsp;begin(input),&nbsp;end;&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//计算数值和。&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//acculumate为头文件&lt;numeric&gt;下定义的函数。&nbsp;&nbsp;</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//第一个参数是开始迭代器，第二个是终止迭代器(最后一个值的下一个)。第三个是和的初值，注意必须用0.0，用它确定数据类型是double&nbsp;&nbsp;</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;<span class="string">"打印数据的总和："&nbsp;&lt;&lt;&nbsp;accumulate(begin,&nbsp;end,&nbsp;0.0)&nbsp;&lt;&lt;&nbsp;endl;&nbsp;&nbsp;</span></li>
+<li class="alt">}&nbsp;&nbsp;</li>
+
+
+
+</ol></div>
+<p>输出结果：</p>
+<p><img src="http://hi.csdn.net/attachment/201108/25/0_13142457813T0D.gif" alt=""></p>
+<p>耽误时间太多。以后再写吧</p>
+<p>&nbsp;</p>
+<p>4、算法：</p>
+<p>算法是操作迭代器提供的一组对象的STL函数模板，对对象的一个操作，可以与前面的容器迭代器结合起来看。如下图介绍</p>
+<p><img src="http://hi.csdn.net/attachment/201108/24/0_1314185621ZBKE.gif" alt=""></p>
+<p>5、函数对象：</p>
+<p>函数对象是重载()运算符的类类型的对象。就是实现operator()()函数。</p>
+<p>函数对象模板在&lt;functional&gt;头文件中定义，必要时我们也可以定义自己的函数对象。做个标记<img src="http://static.blog.csdn.net/xheditor/xheditor_emot/default/struggle.gif" alt="奋斗">，等有具体实例来进行进一步的解释。</p>
+<p>6、函数适配器：</p>
+<p>函数适配器是允许合并函数对象以产生一个更复杂的函数对象的函数模板。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程上提供快速通道。这里说下map内部数据的组织，map内部自建一颗红黑树(一种非严格意义上的平衡二叉树)，这颗树具有对数据自动排序的功能，所以在map内部所有的数据都是有序的，后边我们会见识到有序的好处。</p>
+<p>下面举例说明什么是一对一的数据映射。比如一个班级中，每个学生的学号跟他的姓名就存在着一一映射的关系，这个模型用map可能轻易描述，很明显学号用int描述，姓名用字符串描述(本篇文章中不用char *来描述字符串，而是采用STL中string来描述),下面给出map描述代码：</p>
+<p>Map&lt;int, string&gt; mapStudent;</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map的构造函数</p>
+<p>map共提供了6个构造函数，这块涉及到内存分配器这些东西，略过不表，在下面我们将接触到一些map的构造方法，这里要说下的就是，我们通常用如下方法构造一个map：</p>
+<p>Map&lt;int, string&gt; mapStudent;</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据的插入</p>
+<p>在构造map容器后，我们就可以往里面插入数据了。这里讲三种插入数据的方法：</p>
+<p>第一种：用insert函数插入pair数据，下面举例说明(以下代码虽然是随手写的，应该可以在VC和GCC下编译通过，大家可以运行下看什么效果，在VC下请加入这条语句，屏蔽4786警告&nbsp;＃pragma warning (disable:4786) )</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(2, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(3, “student_three”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator&nbsp;&nbsp;iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;first&lt;&lt;”&nbsp;&nbsp;&nbsp;”&lt;&lt;iter-&gt;second&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>第二种：用insert函数插入value_type数据，下面举例说明</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(map&lt;int, string&gt;::value_type (1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(map&lt;int, string&gt;::value_type (2, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(map&lt;int, string&gt;::value_type (3, “student_three”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator&nbsp;&nbsp;iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;first&lt;&lt;”&nbsp;&nbsp;&nbsp;”&lt;&lt;iter-&gt;second&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>第三种：用数组方式插入数据，下面举例说明</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[1] =&nbsp;&nbsp;“student_one”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[2] =&nbsp;&nbsp;“student_two”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[3] =&nbsp;&nbsp;“student_three”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator&nbsp;&nbsp;iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;first&lt;&lt;”&nbsp;&nbsp;&nbsp;”&lt;&lt;iter-&gt;second&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>以上三种用法，虽然都可以实现数据的插入，但是它们是有区别的，当然了第一种和第二种在效果上是完成一样的，用insert函数插入数据，在数据的插入上涉及到集合的唯一性这个概念，即当map中有这个关键字时，insert操作是插入数据不了的，但是用数组方式就不同了，它可以覆盖以前该关键字对应的值，用程序说明</p>
+<p>mapStudent.insert(map&lt;int, string&gt;::value_type (1, “student_one”));</p>
+<p>mapStudent.insert(map&lt;int, string&gt;::value_type (1, “student_two”));</p>
+<p>上面这两条语句执行后，map中1这个关键字对应的值是“student_one”，第二条语句并没有生效，那么这就涉及到我们怎么知道insert语句是否插入成功的问题了，可以用pair来获得是否插入成功，程序如下</p>
+<p>Pair&lt;map&lt;int, string&gt;::iterator, bool&gt; Insert_Pair;</p>
+<p>Insert_Pair = mapStudent.insert(map&lt;int, string&gt;::value_type (1, “student_one”));</p>
+<p>我们通过pair的第二个变量来知道是否插入成功，它的第一个变量返回的是一个map的迭代器，如果插入成功的话Insert_Pair.second应该是true的，否则为false。</p>
+<p>下面给出完成代码，演示插入成功与否问题</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>Pair&lt;map&lt;int, string&gt;::iterator, bool&gt; Insert_Pair;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insert_Pair&nbsp;＝&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(Insert_Pair.second == true)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;”Insert Successfully”&lt;&lt;endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;”Insert Failure”&lt;&lt;endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insert_Pair&nbsp;＝&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(Insert_Pair.second == true)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;”Insert Successfully”&lt;&lt;endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;”Insert Failure”&lt;&lt;endl;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator&nbsp;&nbsp;iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;first&lt;&lt;”&nbsp;&nbsp;&nbsp;”&lt;&lt;iter-&gt;second&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>大家可以用如下程序，看下用数组插入在数据覆盖上的效果</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[1] =&nbsp;&nbsp;“student_one”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[1] =&nbsp;&nbsp;“student_two”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[2] =&nbsp;&nbsp;“student_three”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator&nbsp;&nbsp;iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;first&lt;&lt;”&nbsp;&nbsp;&nbsp;”&lt;&lt;iter-&gt;second&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map的大小</p>
+<p>在往map里面插入了数据，我们怎么知道当前已经插入了多少数据呢，可以用size函数，用法如下：</p>
+<p>Int nSize = mapStudent.size();</p>
+<p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据的遍历</p>
+<p>这里也提供三种方法，对map进行遍历</p>
+<p>第一种：应用前向迭代器，上面举例程序中到处都是了，略过不表</p>
+<p>第二种：应用反相迭代器，下面举例说明，要体会效果，请自个动手运行程序</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(2, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(3, “student_three”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::reverse_iterator&nbsp;&nbsp;iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(iter = mapStudent.rbegin(); iter != mapStudent.rend(); iter++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;first&lt;&lt;”&nbsp;&nbsp;&nbsp;”&lt;&lt;iter-&gt;second&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>第三种：用数组方式，程序说明如下</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(2, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(3, “student_three”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int nSize = mapStudent.size()</p>
+<p>//此处有误，应该是&nbsp;for(int nIndex = 1; nIndex &lt;= nSize; nIndex++)&nbsp;</p>
+<p>//by rainfish</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int nIndex = 0; nIndex &lt; nSize; nIndex++)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;mapStudent[nIndex]&lt;&lt;end;</p>
+<p>}</p>
+<p>}</p>
+<p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据的查找（包括判定这个关键字是否在map中出现）</p>
+<p>在这里我们将体会，map在数据插入时保证有序的好处。</p>
+<p>要判定一个数据（关键字）是否在map中出现的方法比较多，这里标题虽然是数据的查找，在这里将穿插着大量的map基本用法。</p>
+<p>这里给出三种数据查找方法</p>
+<p>第一种：用count函数来判定关键字是否出现，其缺点是无法定位数据出现位置,由于map的特性，一对一的映射关系，就决定了count函数的返回值只有两个，要么是0，要么是1，出现的情况，当然是返回1了</p>
+<p>第二种：用find函数来定位数据出现位置，它返回的一个迭代器，当数据出现时，它返回数据所在位置的迭代器，如果map中没有要查找的数据，它返回的迭代器等于end函数返回的迭代器，程序说明</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(2, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(3, “student_three”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter = mapStudent.find(1);</p>
+<p>if(iter != mapStudent.end())</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;”Find, the value is ”&lt;&lt;iter-&gt;second&lt;&lt;endl;</p>
+<p>}</p>
+<p>Else</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;”Do not Find”&lt;&lt;endl;</p>
+<p>}</p>
+<p>}</p>
+<p>第三种：这个方法用来判定数据是否出现，是显得笨了点，但是，我打算在这里讲解</p>
+<p>Lower_bound函数用法，这个函数用来返回要查找关键字的下界(是一个迭代器)</p>
+<p>Upper_bound函数用法，这个函数用来返回要查找关键字的上界(是一个迭代器)</p>
+<p>例如：map中已经插入了1，2，3，4的话，如果lower_bound(2)的话，返回的2，而upper-bound（2）的话，返回的就是3</p>
+<p>Equal_range函数返回一个pair，pair里面第一个变量是Lower_bound返回的迭代器，pair里面第二个迭代器是Upper_bound返回的迭代器，如果这两个迭代器相等的话，则说明map中不出现这个关键字，程序说明</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[1] =&nbsp;&nbsp;“student_one”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[3] =&nbsp;&nbsp;“student_three”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent[5] =&nbsp;&nbsp;“student_five”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator&nbsp;&nbsp;iter;</p>
+<p>iter = mapStudent.lower_bound(2);</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回的是下界3的迭代器</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;second&lt;&lt;endl;</p>
+<p>}</p>
+<p>iter = mapStudent.lower_bound(3);</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回的是下界3的迭代器</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;second&lt;&lt;endl;</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>iter = mapStudent.upper_bound(2);</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回的是上界3的迭代器</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;second&lt;&lt;endl;</p>
+<p>}</p>
+<p>iter = mapStudent.upper_bound(3);</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回的是上界5的迭代器</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cout&lt;&lt;iter-&gt;second&lt;&lt;endl;</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>Pair&lt;map&lt;int, string&gt;::iterator, map&lt;int, string&gt;::iterator&gt; mapPair;</p>
+<p>mapPair = mapStudent.equal_range(2);</p>
+<p>if(mapPair.first == mapPair.second)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;”Do not Find”&lt;&lt;endl;</p>
+<p>}</p>
+<p>Else</p>
+<p>{</p>
+<p>Cout&lt;&lt;”Find”&lt;&lt;endl;<br>}</p>
+<p>mapPair = mapStudent.equal_range(3);</p>
+<p>if(mapPair.first == mapPair.second)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;”Do not Find”&lt;&lt;endl;</p>
+<p>}</p>
+<p>Else</p>
+<p>{</p>
+<p>Cout&lt;&lt;”Find”&lt;&lt;endl;<br>}</p>
+<p>}</p>
+<p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据的清空与判空</p>
+<p>清空map中的数据可以用clear()函数，判定map中是否有数据可以用empty()函数，它返回true则说明是空map</p>
+<p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据的删除</p>
+<p>这里要用到erase函数，它有三个重载了的函数，下面在例子中详细说明它们的用法</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>Using namespace std;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;int, string&gt; mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(1, “student_one”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(2, “student_two”));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;int, string&gt;(3, “student_three”));</p>
+<p>&nbsp;</p>
+<p>//如果你要演示输出效果，请选择以下的一种，你看到的效果会比较好</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//如果要删除1,用迭代器删除</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;int, string&gt;::iterator iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iter = mapStudent.find(1);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.erase(iter);</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//如果要删除1，用关键字删除</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Int n = mapStudent.erase(1);//如果删除了会返回1，否则返回0</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//用迭代器，成片的删除</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//一下代码把整个map清空</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.earse(mapStudent.begin(), mapStudent.end());</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//成片删除要注意的是，也是STL的特性，删除区间是一个前闭后开的集合</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//自个加上遍历代码，打印输出吧</p>
+<p>}</p>
+<p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他一些函数用法</p>
+<p>这里有swap,key_comp,value_comp,get_allocator等函数，感觉到这些函数在编程用的不是很多，略过不表，有兴趣的话可以自个研究</p>
+<p>9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;排序</p>
+<p>这里要讲的是一点比较高深的用法了,排序问题，STL中默认是采用小于号来排序的，以上代码在排序上是不存在任何问题的，因为上面的关键字是int型，它本身支持小于号运算，在一些特殊情况，比如关键字是一个结构体，涉及到排序就会出现问题，因为它没有小于号操作，insert等函数在编译的时候过不去，下面给出两个方法解决这个问题</p>
+<p>第一种：小于号重载，程序举例</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>Using namespace std;</p>
+<p>Typedef struct tagStudentInfo</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nID;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;&nbsp;&nbsp;strName;</p>
+<p>}StudentInfo, *PStudentInfo;&nbsp;&nbsp;//学生信息</p>
+<p>&nbsp;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;int nSize;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//用学生信息映射分数</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;StudentInfo, int&gt;mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;map&lt;StudentInfo, int&gt;::iterator iter;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StudentInfo studentInfo;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.nID = 1;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.strName = “student_one”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;StudentInfo, int&gt;(studentInfo, 90));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.nID = 2;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.strName = “student_two”;</p>
+<p>mapStudent.insert(pair&lt;StudentInfo, int&gt;(studentInfo, 80));</p>
+
+
+
+<br>
+<p>for (iter=mapStudent.begin(); iter!=mapStudent.end(); iter++)</p>
+<p>&nbsp;&nbsp;&nbsp; cout&lt;&lt;iter-&gt;first.nID&lt;&lt;endl&lt;&lt;iter-&gt;first.strName&lt;&lt;endl&lt;&lt;iter-&gt;second&lt;&lt;endl;</p>
+<p>&nbsp;</p>
+<p>}</p>
+<p>以上程序是无法编译通过的，只要重载小于号，就OK了，如下：</p>
+<p>Typedef struct tagStudentInfo</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nID;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;&nbsp;&nbsp;strName;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bool operator &lt; (tagStudentInfo const&amp; _A) const</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//这个函数指定排序策略，按nID排序，如果nID相等的话，按strName排序</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(nID &lt; _A.nID)&nbsp;&nbsp;return true;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(nID == _A.nID) return strName.compare(_A.strName) &lt; 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return false;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>}StudentInfo, *PStudentInfo;&nbsp;&nbsp;//学生信息</p>
+<p>第二种：仿函数的应用，这个时候结构体中没有直接的小于号重载，程序说明</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>Using namespace std;</p>
+<p>Typedef struct tagStudentInfo</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nID;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;&nbsp;&nbsp;strName;</p>
+<p>}StudentInfo, *PStudentInfo;&nbsp;&nbsp;//学生信息</p>
+<p>&nbsp;</p>
+<p>Classs sort</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bool operator() (StudentInfo const &amp;_A, StudentInfo const &amp;_B) const</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(_A.nID &lt; _B.nID) return true;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(_A.nID == _B.nID) return _A.strName.compare(_B.strName) &lt; 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return false;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p>};</p>
+<p>&nbsp;</p>
+<p>Int main()</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//用学生信息映射分数</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;StudentInfo, int, sort&gt;mapStudent;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StudentInfo studentInfo;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.nID = 1;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.strName = “student_one”;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStudent.insert(pair&lt;StudentInfo, int&gt;(studentInfo, 90));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.nID = 2;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;studentInfo.strName = “student_two”;</p>
+<p>mapStudent.insert(pair&lt;StudentInfo, int&gt;(studentInfo, 80));</p>
+<p>}</p>
+<p>10.&nbsp;&nbsp;&nbsp;另外</p>
+<p>由于STL是一个统一的整体，map的很多用法都和STL中其它的东西结合在一起，比如在排序上，这里默认用的是小于号，即less&lt;&gt;，如果要从大到小排序呢，这里涉及到的东西很多，在此无法一一加以说明。</p>
+<p>还要说明的是，map中由于它内部有序，由红黑树保证，因此很多函数执行的时间复杂度都是log<sub>2</sub>N的，如果用map函数可以实现的功能，而STL&nbsp;&nbsp;Algorithm也可以完成该功能，建议用map自带函数，效率高一些。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 class="postTitle"><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/virusolf/p/4904761.html">STL example</a></h1>
+<p>ctor是一种<a href="http://baike.haosou.com/doc/6085118-6298221.html" target="_blank">动态数组</a>，是基本<a href="http://baike.haosou.com/doc/5545345-5760453.html" target="_blank">数组</a>的<a href="http://baike.haosou.com/doc/565410-598558.html" target="_blank">类模板</a>。其内部定义了很多基本操作。</p>
+<p>#include &lt;vector&gt;&nbsp;<em>注意:头文件没有".h"</em></p>
+<h2><span class="title">构造</span></h2>
+<div class="sonConBox">
+<div class="h2_content">
+<p>这个<a href="http://baike.haosou.com/doc/4486173-4695354.html" target="_blank">构造函数</a>还有一个可选的参数，这是一个类型为T的实例，描述了各个向量中各成员的初始值;</p>
+<p>如:vector&lt;int&gt; v2(init_size,0); 如果预先定义了:int init_size;他的成员值都被初始化为0;</p>
+<p>·&nbsp;复制构造函数，构造一个新的向量，作为已存在的向量的完全复制;</p>
+<p>如:vector&lt;int&gt; v3(v2);</p>
+<p>·&nbsp;带两个常量参数的构造函数，产生初始值为一个区间的向量。<em>区间由一个半开区间[first,last)(MS word的显示可能会有问题，first前是一个左方括号，last后面是一个右圆括号)</em>来指定。</p>
+<p>如:vector&lt;int&gt; v4(first,last) vector&lt;int&gt; v1;</p>
+<p>vector&lt;int&gt; v2(init_size,0);</p>
+<p>vector&lt;int&gt; v3(v2);</p>
+<p>&nbsp;</p>
+<h2><span class="title">方法</span></h2>
+<div class="sonConBox">
+<div class="h2_content">
+<p>c.assign(beg,end) c.assign(n,elem) 将(beg; end)区间中的数据赋值给c。将n个elem的拷贝赋值给c。</p>
+<p>c. at(idx) 传回索引idx所指的数据，如果idx越界，抛出out_of_range。</p>
+<p>c.back() 传回最后一个数据，不检查这个数据是否存在。</p>
+<p>c.begin() 传回<a href="http://baike.haosou.com/doc/4824484-5041154.html" target="_blank">迭代器</a>中的第一个数据地址。</p>
+<p>c.capacity() 返回容器中数据个数。</p>
+<p>c.clear() 移除容器中所有数据。</p>
+<p>c.empty() 判断容器是否为空。</p>
+<p>c.end() // 指向迭代器中末端元素的下一个，指向一个不存在元素。</p>
+<p>c.erase(pos) // 删除pos位置的数据，传回下一个数据的位置。</p>
+<p>c.erase(beg,end) 删除[beg,end)区间的数据，传回下一个数据的位置。</p>
+<p>c.front() 传回第一个数据。</p>
+<p>get_allocator 使用<a href="http://baike.haosou.com/doc/4486173-4695354.html" target="_blank">构造函数</a>返回一个拷贝。</p>
+<p>c.insert(pos,elem) // 在pos位置插入一个elem拷贝，传回新数据位置</p>
+<p>c.insert(pos,n,elem) // 在pos位置插入n个elem数据,无返回值</p>
+<p>c.insert(pos,beg,end) // 在pos位置插入在[beg,end)区间的数据。无返回值</p>
+<p>c.max_size() 返回容器中最大数据的数量。</p>
+<p>c.pop_back() 删除最后一个数据。</p>
+<p>c.<a href="http://baike.haosou.com/doc/6951062-7173463.html" target="_blank">push_back</a>(elem) 在尾部加入一个数据。</p>
+<p>c.rbegin() 传回一个逆向队列的第一个数据。</p>
+<p>c.rend() 传回一个逆向队列的最后一个数据的下一个位置。</p>
+<p>c.resize(num) 重新指定队列的长度。</p>
+<p>c.reserve() 保留适当的容量。</p>
+<p>c.size() 返回容器中实际数据的个数。</p>
+<p>c1.swap(c2) // 将c1和c2元素互换</p>
+</div>
+</div>
+<h2><a name="4680868-4894703-4"></a><a class="conArrow" href="http://baike.haosou.com/doc/4680868-4894703.html" data-logid="h2-title">折叠</a><span class="opt js-edittext"><a class="edit" href="http://baike.haosou.com/create/edit/?eid=4680868&amp;sid=4894703&amp;secid=4" data-log="edit-title">编辑本段</a><span class="title">例子</span></span></h2>
+<div class="sonConBox">
+<div class="h2_content">
+<p>为了帮助理解向量的概念，这里写了一个小例子，其中用到了vector的成员函数:begin()，end()，<a href="http://baike.haosou.com/doc/6951062-7173463.html" target="_blank">push_back</a>()，assign()，front()，back()，erase()，empty()，at()，size()。</p>
+<p>//stl_cpp_8.cpp</p>
+<p>#include &lt;iostream&gt;</p>
+<p>#include &lt;vector&gt;</p>
+<p>using namespace std;</p>
+<p>typedef vector&lt;int&gt; INTVECTOR;//自定义类型INTVECTOR</p>
+<p>//测试vector容器的功能</p>
+<p>void main(<a href="http://baike.haosou.com/doc/5506764-5742509.html" target="_blank">void</a>)</p>
+<p>{</p>
+<p>//vec1对象初始为空</p>
+<p>INTVECTOR vec1;</p>
+<p>//vec2对象最初有10个值为6的元素</p>
+<p>INTVECTOR vec2(10,6);</p>
+<p>//vec3对象最初有3个值为6的元素，拷贝构造</p>
+<p>INTVECTOR vec3(vec2.begin(),vec2.begin()+3);</p>
+<p>//声明一个名为i的双向<a href="http://baike.haosou.com/doc/4824484-5041154.html" target="_blank">迭代器</a></p>
+<p>INTVECTOR::iterator i;</p>
+<p>//从前向后显示vec1中的数据</p>
+<p>cout&lt;&lt;"vec1.begin()--vec1.end():"&lt;&lt;endl;</p>
+<p>for (i =vec1.begin(); i !=vec1.end(); ++i)</p>
+<p>cout &lt;&lt; *i &lt;&lt; " ";</p>
+<p>cout &lt;&lt; endl;</p>
+<p>//从前向后显示vec2中的数据</p>
+<p>cout&lt;&lt;"vec2.begin()--vec2.end():"&lt;&lt;endl;</p>
+<p>for (i =vec2.begin(); i !=vec2.end(); ++i)</p>
+<p>cout &lt;&lt; *i &lt;&lt; " ";</p>
+<p>cout &lt;&lt; endl;</p>
+<p>//从前向后显示vec3中的数据</p>
+<p>cout&lt;&lt;"vec3.begin()--vec3.end():"&lt;&lt;endl;</p>
+<p>for (i =vec3.begin(); i !=vec3.end(); ++i)</p>
+<p>cout &lt;&lt; *i &lt;&lt; " ";</p>
+<p>cout &lt;&lt; endl;</p>
+<p>//测试添加和插入成员函数，vector不支持从前插入</p>
+<p>vec1.<a href="http://baike.haosou.com/doc/6951062-7173463.html" target="_blank">push_back</a>(2);//从后面添加一个成员</p>
+<p>vec1.push_back(4);</p>
+<p>//从vec1第一的位置开始插入vec3的所有成员</p>
+<p>vec1.insert(vec1.begin(),vec3.begin(),vec3.end());</p>
+<p>cout&lt;&lt;"after push() and insert() now the vec1 is:" &lt;&lt;endl;</p>
+<p>for (i =vec1.begin(); i !=vec1.end(); ++i)</p>
+<p>cout &lt;&lt; *i &lt;&lt; " ";</p>
+<p>cout &lt;&lt; endl;</p>
+<p>//测试赋值成员函数</p>
+<p>vec2.assign(8,1); // 重新给vec2赋值，8个成员的初始值都为1</p>
+<p>cout&lt;&lt;"vec2.assign(8,1):" &lt;&lt;endl;</p>
+<p>for (i =vec2.begin(); i !=vec2.end(); ++i)</p>
+<p>cout &lt;&lt; *i &lt;&lt; " ";</p>
+<p>cout &lt;&lt; endl;</p>
+<p>//测试引用类函数</p>
+<p>cout&lt;&lt;"vec1.front()="&lt;&lt;vec1.front()&lt;&lt;endl;//vec1第零个成员</p>
+<p>cout&lt;&lt;"vec1.back()="&lt;&lt;vec1.back()&lt;&lt;endl;//vec1的最后一个成员</p>
+<p>cout&lt;&lt;"vec1. at(4)="&lt;&lt;vec1. at(4)&lt;&lt;endl;//vec1的第五个成员</p>
+<p>cout&lt;&lt;"vec1[4]="&lt;&lt;vec1[4]&lt;&lt;endl;</p>
+<p>//测试移出和删除</p>
+<p>vec1.pop_back();//将最后一个成员移出vec1</p>
+<p>vec1.erase(vec1.begin()+1,vec1.end()-2);//删除成员</p>
+<p>cout&lt;&lt;"vec1.pop_back() and vec1.erase():" &lt;&lt;endl;</p>
+<p>for (i =vec1.begin(); i !=vec1.end(); ++i)</p>
+<p>cout &lt;&lt; *i &lt;&lt; " ";</p>
+<p>cout &lt;&lt; endl;</p>
+<p>//显示序列的状态信息</p>
+<p>cout&lt;&lt;"vec1.size(): "&lt;&lt;vec1.size()&lt;&lt;endl;//打印成员个数</p>
+<p>cout&lt;&lt;"vec1.empty(): "&lt;&lt;vec1.empty()&lt;&lt;endl;//判断vec1是否为空，空则返回1，不空返回0</p>
+<p>}</p>
+<p><a href="http://baike.haosou.com/doc/6951062-7173463.html" target="_blank">push_back</a>()是将数据放入vector(向量)或deque(<a href="http://baike.haosou.com/doc/1095127-1158769.html" target="_blank">双端队列</a>)的<a href="http://baike.haosou.com/doc/4632682-4845406.html" target="_blank">标准函数</a>。Insert()是一个与之类似的函数，然而它在所有容器中都可以使用，但是用法更加复杂。end()实际上是取末尾加一，以便让循环正确运行--它返回的<a href="http://baike.haosou.com/doc/1043844-1104112.html" target="_blank">指针</a>指向最靠近<a href="http://baike.haosou.com/doc/5545345-5760453.html" target="_blank">数组</a>界限的数据</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/virusolf/category/664558.html" target="_blank">C/C++/Java/</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4323940,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow('a7922412-d7c4-e411-b908-9dcfd8948a71');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="//common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="//common.cnblogs.com/images/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/virusolf/" target="_blank"><img src="//pic.cnblogs.com/face/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/virusolf/">贺大卫</a><br>
+            <a href="http://home.cnblogs.com/u/virusolf/followees">关注 - 1</a><br>
+            <a href="http://home.cnblogs.com/u/virusolf/followers">粉丝 - 13</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('a7922412-d7c4-e411-b908-9dcfd8948a71');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4323940,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(4323940,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/virusolf/p/4324591.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/virusolf/p/4324591.html" title="发布于2015-03-09 21:37">C++的try_catch异常</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-03-09 16:46</span> <a href="http://www.cnblogs.com/virusolf/">贺大卫</a> 阅读(<span id="post_view_count">1276</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4323940" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4323940);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=217286,cb_entryId=4323940,cb_blogApp=currentBlogApp,cb_blogUserGuid='a7922412-d7c4-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/3/9 16:46:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://www.yunqi2050.com/" target="_blank">【活动】2050 大会 - 年青人因科技而团聚（5.26-5.27 杭州·云栖小镇）</a><br><a href="http://clickc.admaster.com.cn/c/a105960,b2436452,c1705,i0,m101,8a1,8b2,h" target="_blank">【推荐】0元免费体验华为云服务</a><br><a href="https://cloud.tencent.com/act/first_purchase?fromSource=gwzcw.919198.919198.919198" target="_blank">【活动】腾讯云云服务器新购特惠，5折上云</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a onclick="ga('send', 'event', 'Link', 'click', 'C1');" href="https://cloud.tencent.com/act/event/cdbbasic.html?fromSource=gwzcw.919199.919199.919199" target="_blank"><img width="300" height="250" src="https://images2018.cnblogs.com/news/24442/201805/24442-20180502205118653-1977595167.jpg" alt="腾讯云0502"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/595970/" target="_blank">生活在NASA新飞船中啥感觉？拥挤、眩晕还危险</a><br> ·  <a href="https://news.cnblogs.com/n/595979/" target="_blank">埃隆·马斯克计划创立一家糖果公司</a><br> ·  <a href="https://news.cnblogs.com/n/595969/" target="_blank">OpenAI的Debate Game教导机器人如何辩论和说谎</a><br> ·  <a href="https://news.cnblogs.com/n/595963/" target="_blank">是谁真正击倒了摩拜？</a><br> ·  <a href="https://news.cnblogs.com/n/595977/" target="_blank">新三板小贷公司营收净利双降 已有6家摘牌1家跑路</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/26880/" target="_blank"><img src="https://gw.alicdn.com/tfs/TB1WDRaXMoQMeJjy0FnXXb8gFXa-468-60.jpg" alt="" style="width: 468px; height: 60px;"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/578689/" target="_blank">如何成为优秀的程序员？</a><br> ·  <a href="http://kb.cnblogs.com/page/594930/" target="_blank">菜鸟工程师的超神之路 -- 从校园到职场</a><br> ·  <a href="http://kb.cnblogs.com/page/593985/" target="_blank">如何识别人的技术能力和水平？</a><br> ·  <a href="http://kb.cnblogs.com/page/575255/" target="_blank">写给自学者的入门指南</a><br> ·  <a href="http://kb.cnblogs.com/page/578690/" target="_blank">和程序员谈恋爱</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/virusolf/">贺大卫</a><br>园龄：<a href="https://home.cnblogs.com/u/virusolf/" title="入园时间：2015-03-07">3年2个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/virusolf/followers/">13</a><br>关注：<a href="https://home.cnblogs.com/u/virusolf/followees/">1</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow('a7922412-d7c4-e411-b908-9dcfd8948a71')">+加关注</a></div><script>getFollowStatus('a7922412-d7c4-e411-b908-9dcfd8948a71')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2018/04/01');return false;">&lt;</a></td><td align="center">2018年5月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2018/06/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td class="CalTodayDay" align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td class="CalWeekendDay" align="center">19</td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/virusolf/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/virusolf/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/virusolf/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/virusolf/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/virusolf/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/virusolf/category/899219.html">booklist</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/virusolf/category/664558.html">C/C++/Java/(34)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/virusolf/category/789881.html">cloud</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/virusolf/category/807694.html">database(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/virusolf/category/693456.html">English(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/virusolf/category/664634.html">Linux(61)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/virusolf/category/678434.html">LTE-3GPP(13)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/virusolf/category/922848.html">python &amp;&amp;数据分析(11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/virusolf/category/747846.html">search &amp;算法(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/virusolf/category/665659.html">TCP/IP网络相关(14)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/virusolf/category/664635.html">Test(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/virusolf/category/752766.html">video(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/virusolf/category/713315.html">佛</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/virusolf/category/866617.html">设计模式(2)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/virusolf/archive/2017/12.html">2017年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/virusolf/archive/2017/04.html">2017年4月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/virusolf/archive/2017/03.html">2017年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/virusolf/archive/2017/01.html">2017年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/virusolf/archive/2016/12.html">2016年12月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/virusolf/archive/2016/08.html">2016年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/virusolf/archive/2016/06.html">2016年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/virusolf/archive/2016/05.html">2016年5月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/virusolf/archive/2016/04.html">2016年4月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/virusolf/archive/2016/03.html">2016年3月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/virusolf/archive/2016/02.html">2016年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/virusolf/archive/2016/01.html">2016年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/virusolf/archive/2015/12.html">2015年12月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/virusolf/archive/2015/11.html">2015年11月 (32)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/virusolf/archive/2015/10.html">2015年10月 (30)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/virusolf/archive/2015/09.html">2015年9月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/virusolf/archive/2015/08.html">2015年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/virusolf/archive/2015/07.html">2015年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/virusolf/archive/2015/05.html">2015年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/virusolf/archive/2015/04.html">2015年4月 (17)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/virusolf/archive/2015/03.html">2015年3月 (8)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/virusolf/p/4951443.html#3306590">1. Re:Linux下Socket编程</a></li>
+        <li class="recent_comment_body">楼主能否给个联系方式，有些socket问题，想请教下？</li>
+        <li class="recent_comment_author">--海神解说</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/virusolf/p/4335613.html">1. 对TCP重传的进一步认识(12516)</a></li><li><a href="http://www.cnblogs.com/virusolf/p/6259610.html">2. 《利用python进行数据分析》读书笔记--第八章 绘图和可视化(5912)</a></li><li><a href="http://www.cnblogs.com/virusolf/p/4428429.html">3. LTE QCI分类 QoS(3901)</a></li><li><a href="http://www.cnblogs.com/virusolf/p/4423515.html">4. LTE：上行调度请求（Scheduling Request，SR） LTE：下行资源分配类型(3453)</a></li><li><a href="http://www.cnblogs.com/virusolf/p/5454276.html">5. linux socket高性能服务器处理框架(3344)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/virusolf/p/4951443.html">1. Linux下Socket编程(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/virusolf/p/4335613.html">1. 对TCP重传的进一步认识(1)</a></li><li><a href="http://www.cnblogs.com/virusolf/p/6259610.html">2. 《利用python进行数据分析》读书笔记--第八章 绘图和可视化(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer" chromeappversion="3.0.3">
+		
+<!--done-->
+Copyright ©2018 贺大卫
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<audio controls="controls" style="display: none;"></audio></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style><div></div></html>
